@@ -301,4 +301,47 @@ vim-easygrep有一些默认的快捷键，例如
 :Replace [target] [replacement]
 ```
 
+### 3.9 注释代码
 
+实现代码的快速注释，使用的是插件`scrooloose/nerdcommenter`，配置如下
+
+```
+Plugin 'scrooloose/nerdcommenter'
+```
+
+有默认的快捷方式：
+
+1. 注释当前行：<leader>cc
+2. toggle注释：<leader>c<space>
+
+配置了注释时空出一个字符
+
+```
+let g:NERDSpaceDelims = 1
+```
+
+### 3.10 javascript库语法高亮
+
+安装了插件`javascript-libraries-syntax.vim`，配置如下
+
+```
+Bundle 'javascript-libraries-syntax.vim'
+```
+
+安装之后，可以设置识别的js库函数，进行语法高亮
+
+```
+let g:used_javascript_libs = 'jquery,requirejs'
+```
+
+### 3.11 光标的快速移动
+
+快速移动光标的插件`easymotion`，安装配置如下
+
+```
+Plugin 'easymotion/vim-easymotion'
+```
+
+开启快速移动的模式 <leader><leader>w
+
+输入高亮的字母可以调到对应的位置

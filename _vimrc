@@ -7,7 +7,6 @@ hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
 filetype plugin indent on
 set t_Co=256
 set background=dark  "dark light "can switch it to find which is look pretty
-set nocompatible                 "some plugin need it
 set hlsearch                     "highlight the search
 set incsearch                    "move to fit position after one char input
 set nobackup                     "won't produce the backup file when save file
@@ -60,11 +59,20 @@ Plugin 'alvan/vim-closetag'
 Plugin 'szw/vim-maximizer'
 " vimgrep的简易使用插件
 Plugin 'dkprice/vim-easygrep'
+" 注释
+Plugin 'scrooloose/nerdcommenter'
+" 鼠标快速移动
+Plugin 'easymotion/vim-easymotion'
 call vundle#end()
 
+" 文档树
 Bundle 'scrooloose/nerdtree'
+" emmet插件
 Bundle 'mattn/emmet-vim'
+" 自动配对{} ()
 Bundle 'Auto-Pairs'
+" javascript语法库高亮
+Bundle 'othree/javascript-libraries-syntax.vim'
 
 " nerdTree快捷键映射
 let NERDTreeWinPos='left'
@@ -89,4 +97,10 @@ let g:ctrlp_cmd = 'CtrlP'
 nnoremap <silent><F3> :MaximizerToggle<CR>
 vnoremap <silent><F3> :MaximizerToggle<CR>gv
 inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
+
+" 配置注释空出一个字符，美观
+let g:NERDSpaceDelims = 1
+
+" 识别语法库
+let g:used_javascript_libs = 'jquery,requirejs'
 
