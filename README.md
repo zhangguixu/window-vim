@@ -152,7 +152,153 @@ Vundle安装插件通过配置文件有两种形式
 :BundleClean // 卸载插件
 ```
 
-## 3.1 安装常用插件
+## 3 常用插件与用法
 
 > 这一部分会不定期更新，用到什么安装什么
+
+在windows下安装插件大部分时候需要重新启动vim，很尴尬！
+
+如果想多安装的插件有更多的了解可以自行搜索vim+插件名，一般在github就可以直接搜索到。
+
+### 3.1 美观底部状态栏
+
+安装的插件叫[vim-airline](https://github.com/vim-airline/vim-airline), 安装步骤如下：
+
+1. 配置_vimrc, 添加以下配置，参考上面vundle安装插件的常识
+
+    ```
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    ```
+
+2. 执行:BundleInstall，安装之后重新启动即可
+
+### 3.2 nerdTree
+
+边栏文件管理，不用多介绍，直接在配置_vimrc，使用:BundleInstall即可
+
+```
+Bundle 'scrooloose/nerdtree'
+```
+
+配置快捷键，按F2开关边栏，浏览文件
+
+```
+" nerdTree快捷键映射
+let NERDTreeWinPos='left'
+let NERDTreeWinSize=30
+map <F2> :NERDTreeToggle<CR>
+```
+
+### 3.3 emmet / vim-closetag
+
+前端开发经常使用到的插件，安装还是配置_vimrc，使用:BundleInstall即可
+
+```
+Bundle 'mattn/emmet-vim'
+```
+
+配置emmet的快捷键ctrl+tab，并且使其只在特定的文件类型下才生效，单独设置tab不科学，经常使用tab进行缩进的
+
+```
+" 设置emmet快捷
+let g:user_emmet_expandabbr_key = '<c-tab>'
+let g:user_emmet_settings = {'indentation': '    '}
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+```
+
+在用不到emmet的时候，可以使用`vim-closetag`进行自动关闭html、xml标签，在html文件比较大的情况下还是蛮实用的，配置如下
+
+```
+Plugin 'alvan/vim-closetag'
+```
+
+### 3.4 markdown
+
+安装markdown插件，可以支持markdown的语法，如果需要预览则要安装额外安装其他的插件
+
+配置_vimrc，使用:BundleInstall
+
+```
+" markdown插件
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+```
+
+### 3.5 js/css/html/json 格式化
+
+配置_vimrc，再执行`:PluginInstall`，注意，需要有npm的支持，即在电脑上安装node环境
+
+```
+Plugin 'maksimr/vim-jsbeautify'
+```
+
+设置快捷键，配置_vimrc
+
+```
+map <c-f> :call JsBeautify()<cr>
+```
+
+即可使用ctrl+f的快捷键格式化文件
+
+### 3.6 快速打开文件
+
+在vim中，快速查找并打开该文件，使用ctrlp.vim，配置_vimrc，使用Vundle进行安装即可
+
+```
+Plugin 'ctrlpvim/ctrlp.vim'
+```
+
+配置快捷键，ctrl+p，打开搜索栏，可以浏览当前文件夹的文件，也可以快速打开文件
+
+```
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+```
+
+### 3.7 多窗口
+
+当分隔多个窗口的时候，即使用`:vsp filename`指令时，可以插件`szw/vim-maximizer`，进行窗口的最大最小化，很方便
+
+```
+Plugin 'szw/vim-maximizer'
+```
+
+配置F3为快捷键，配置如下
+
+```
+nnoremap <silent><F3> :MaximizerToggle<CR>
+vnoremap <silent><F3> :MaximizerToggle<CR>gv
+inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
+```
+
+### 3.8 全局搜索
+
+在windows下，全局搜索是一个很麻烦的事情，这里决定使用vim自带的`vimgrep`，但是这个命令使用起来比较麻烦，因此使用了插件`vim-easygrep`，同样使用Vundle进行安装
+
+```
+Plugin 'dkprice/vim-easygrep'
+```
+
+vim-easygrep有一些默认的快捷键，例如
+
+```
+<leader>vv 可以在当前目录下全局搜索指针选择的单词
+```
+
+例如我们要全局搜索一段字符串`str-star`，可以在可视模式下通过光标移动选择该字符串，之后按下快捷键 \ + v + v，即完成字符串的搜索，很方便
+
+当然，我们也可以直接进行全局搜索，使用指令
+
+```
+:Grep 搜索字符串
+```
+
+全局替换也可以
+
+```
+:Replace [target] [replacement]
+```
+
 
