@@ -63,6 +63,8 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'scrooloose/nerdcommenter'
 " 鼠标快速移动
 Plugin 'easymotion/vim-easymotion'
+" 浏览当前打开的文件
+Plugin 'jlanzarotta/bufexplorer'
 call vundle#end()
 
 " 文档树
@@ -104,3 +106,5 @@ let g:NERDSpaceDelims = 1
 " 识别语法库
 let g:used_javascript_libs = 'jquery,requirejs'
 
+" 快捷键f8 浏览当前打开的文件
+nnoremap <silent><F8> :BufExplorer<CR>

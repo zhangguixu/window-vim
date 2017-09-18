@@ -350,3 +350,19 @@ Plugin 'easymotion/vim-easymotion'
 开启快速移动的模式 <leader><leader>w
 
 输入高亮的字母可以调到对应的位置
+
+### 3.12 浏览当前打开的文件
+
+这里使用的插件是`jlanzarotta/bufexplorer`，依旧是使用vundle进行安装，配置如下
+
+```
+Plugin 'jlanzarotta/bufexplorer'
+```
+
+配置快捷键F8，浏览当前打开的文件列表，配置如下
+
+```
+nnoremap <silent><F8> :BufExplorer<CR>
+```
+
+> 注意要在normal模式下
