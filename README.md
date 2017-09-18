@@ -56,6 +56,8 @@ set foldcolumn=5    "设置折叠栏的宽度
 2. 将文件拷贝到vim安装目录下的vimfiles -> colors文件夹下
 3. 在_vimrc上添加一行配置`colorscheme gruvbox`, 重启之后即可看到效果
 
+> 依此方法类推，在windows下安装主题配色都是这样的方法步骤。
+
 ## 2. 安装Vundle插件管理器
 
 在windows下安装vundle比较麻烦，分为三步，vundle安装插件的原理依赖于git和curl，因此需要在windows安装这两种工具
@@ -64,7 +66,7 @@ set foldcolumn=5    "设置折叠栏的宽度
 
 [chocolatey](https://chocolatey.org/)是windows下实用的包管理器，类似于ubuntu下的`apt-get`，安装步骤如下：
 
-在windows下打开cmd，黏贴以下命令，回车执行，即可安装chocolatey。
+在windows下打开cmd，黏贴以下命令，回车执行，即可安装chocolatey，这里注意要使用管理员权限。
 
 ```
  @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin" 
@@ -78,6 +80,8 @@ set foldcolumn=5    "设置折叠栏的宽度
 choco install -y git
 choco install -y curl
 ```
+
+> 这里同样需要管理员权限
 
 ### 2.3 安装Vundle
 
@@ -287,7 +291,7 @@ vim-easygrep有一些默认的快捷键，例如
 <leader>vv 可以在当前目录下全局搜索指针选择的单词
 ```
 
-例如我们要全局搜索一段字符串`str-star`，可以在可视模式下通过光标移动选择该字符串，之后按下快捷键 \ + v + v，即完成字符串的搜索，很方便
+例如我们要全局搜索一段字符串`str-star`，可以在可视模式下通过光标移动选择该字符串，之后按下快捷键 <leader>vv，即完成字符串的搜索，很方便
 
 当然，我们也可以直接进行全局搜索，使用指令
 
@@ -333,6 +337,7 @@ Bundle 'javascript-libraries-syntax.vim'
 ```
 let g:used_javascript_libs = 'jquery,requirejs'
 ```
+
 
 ### 3.11 光标的快速移动
 
