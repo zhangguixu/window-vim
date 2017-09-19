@@ -246,6 +246,12 @@ map <c-f> :call JsBeautify()<cr>
 
 即可使用ctrl+f的快捷键格式化文件
 
+格式化之后可能文件会出现乱码的情况的，这个是因为没有在_vimrc配置encoding的原因，配置如下
+
+```
+set encoding = utf-8
+```
+
 ### 3.6 快速打开文件
 
 在vim中，快速查找并打开该文件，使用ctrlp.vim，配置_vimrc，使用Vundle进行安装即可

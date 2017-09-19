@@ -26,6 +26,7 @@ set softtabstop=4                "backspace can del 4 space
 set lcs=eol:$,tab:\|\            "display tab to green line
 set backspace=indent,eol,start   "better backspace
 set fileencodings=utf-8,cp936    "auto test the file is uft-8 or cp936
+set encoding=utf-8               " 设置vim工作区的编码为utf-8，写代码统一编码很重要
 set fileformats=unix,dos,mac     "line feed different in different mode
 set completeopt=menuone,longest
 set relativenumber
