@@ -26,15 +26,15 @@ set softtabstop=4                "backspace can del 4 space
 set lcs=eol:$,tab:\|\            "display tab to green line
 set backspace=indent,eol,start   "better backspace
 set fileencodings=utf-8,cp936    "auto test the file is uft-8 or cp936
-set encoding=utf-8               " 设置vim工作区的编码为utf-8，写代码统一编码很重要
+set encoding=utf-8             " 设置utf-8
 set fileformats=unix,dos,mac     "line feed different in different mode
 set completeopt=menuone,longest
 set relativenumber
 
 
-set guifont=Consolas:h14 "设置字体
-set clipboard=unnamed "使用windows的剪贴板
-colorscheme molokai
+set guifont=Consolas:h14 " 设置字体
+set clipboard=unnamed "使用windows的剪切板
+colorscheme gruvbox
 
 set foldmethod=syntax "用语法高亮来定义折叠
 set foldlevel=100   "启动vim时不要自动折叠代码
@@ -95,6 +95,7 @@ map <c-f> :call JsBeautify()<cr>
 " 设置快速打开文件快捷键 ctrl+p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*\\node_modules\\*,*.git*,*.svn*,*.zip*,*.exe* " 使用vim的忽略文件
 
 " F3 快捷键，最大最小化窗口
 nnoremap <silent><F3> :MaximizerToggle<CR>

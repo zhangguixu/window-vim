@@ -260,12 +260,15 @@ set encoding = utf-8
 Plugin 'ctrlpvim/ctrlp.vim'
 ```
 
-配置快捷键，ctrl+p，打开搜索栏，可以浏览当前文件夹的文件，也可以快速打开文件
+配置快捷键，ctrl+p，打开搜索栏，可以浏览当前文件夹的文件，也可以快速打开文件，此外还需要配置模糊搜索所要忽略的文件夹，例如常见的node_modules文件夹
 
 ```
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*\\node_modules\\*,*.git*,*.svn*,*.zip*,*.exe* " 使用vim的忽略文件
 ```
+
+> ctrlp的github主页有详细的说明
 
 ### 3.7 多窗口
 
