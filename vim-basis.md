@@ -48,9 +48,22 @@ ctrl+w h/j/k/l
 ```
 " 执行npm run develop，效果是执行之后，将log打到vim的缓存区
 function BuildProject ()
+    " 先保存全部，再执行构建命令
+    exe 'wa'
     exe 'new | setlocal buftype=nofile bufhidden=hide | read !npm run develop '
 endfunction
 nmap <silent><F5> :call BuildProject()<CR>
 ```
 
+### space + w
 
+normal模式下，保存全部，配置如下，此外，此配置还更改了<leader>的映射，使其更加的顺手
+
+``` 
+" 将 <leader> 映射到<space>
+let mapleader = "\<space>"
+let g:mapleader = "\<space>"
+
+" 保存全部，不然打开的项目文件一多有时间就忘记保存了
+nnoremap <leader>w :wa <CR>
+```

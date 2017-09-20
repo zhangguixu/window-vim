@@ -120,11 +120,13 @@ nmap <tab> <c-w><c-w>
 let mapleader = "\<space>"
 let g:mapleader = "\<space>"
 
-" 保存
-nnoremap <leader>w :w <CR>
+" 保存全部，不然打开的项目文件一多有时间就忘记保存了
+nnoremap <leader>w :wa <CR>
 
 " 执行npm run develop，效果是执行之后，将log打到vim的缓存区
 function BuildProject ()
+    " 先保存全部，在进行项目的构建
+    exe 'wa'
     exe 'new | setlocal buftype=nofile bufhidden=hide | read !npm run develop '
 endfunction
 nmap <silent><F5> :call BuildProject()<CR>
