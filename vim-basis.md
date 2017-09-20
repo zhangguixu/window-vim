@@ -37,3 +37,20 @@ ctrl+w h/j/k/l
 :tabn / :tabl / :tabfir / :tabN 标签页切换
 ```
 
+## 设置自己常用的快捷键
+
+### f5
+
+一键运行`npm run develop`，并且在vim中打开一个缓冲区，记录运行的结果。
+
+原理：利用exe在vim中执行命令，并且利用管道来获取外部命令运行的结果，使用new开启一个缓冲区，最后通过将缓冲区设置
+
+```
+" 执行npm run develop，效果是执行之后，将log打到vim的缓存区
+function BuildProject ()
+    exe 'new | setlocal buftype=nofile bufhidden=hide | read !npm run develop '
+endfunction
+nmap <silent><F5> :call BuildProject()<CR>
+```
+
+

@@ -92,7 +92,7 @@ autocmd FileType html,css EmmetInstall
 " 格式化快捷键 ctrl+f
 map <c-f> :call JsBeautify()<cr>
 
-" 设置快速打开文件快捷键 ctrl+p
+" 设置快速打开文件快捷键 ctrl+p, 设置忽略的文件夹
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*\\node_modules\\*,*.git*,*.svn*,*.zip*,*.exe* " 使用vim的忽略文件
@@ -110,3 +110,21 @@ let g:used_javascript_libs = 'jquery,requirejs'
 
 " 快捷键f8 浏览当前打开的文件
 nnoremap <silent><F8> :BufExplorer<CR>
+
+" 自定义快捷键区
+
+" 切换窗口 在normal模式下，tab 键切换从左到右切换窗口
+nmap <tab> <c-w><c-w>
+
+" 将 <leader> 映射到<space>
+let mapleader = "\<space>"
+let g:mapleader = "\<space>"
+
+" 保存
+nnoremap <leader>w :w <CR>
+
+" 执行npm run develop，效果是执行之后，将log打到vim的缓存区
+function BuildProject ()
+    exe 'new | setlocal buftype=nofile bufhidden=hide | read !npm run develop '
+endfunction
+nmap <silent><F5> :call BuildProject()<CR>
