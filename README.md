@@ -40,7 +40,6 @@ set fileformats=unix,dos,mac     "line feed different in different mode
 set completeopt=menuone,longest
 set relativenumber
 
-set guifont=Consolas:h14 "设置字体
 set clipboard=unnamed "使用windows的剪贴板
 
 set foldmethod=syntax "用语法高亮来定义折叠
@@ -57,6 +56,20 @@ set foldcolumn=5    "设置折叠栏的宽度
 3. 在_vimrc上添加一行配置`colorscheme gruvbox`, 重启之后即可看到效果
 
 > 依此方法类推，在windows下安装主题配色都是这样的方法步骤。
+
+### 1.2 gvim的界面简洁美化配置
+
+```
+"-------gvim 的界面设置--------"
+
+set guioptions-=T              " 去除工具栏
+set guioptions-=m              " 去除顶部的菜单栏
+set guioptions-=l              " 去除左边的滚动条
+set guioptions-=L              " 去除左边的滚动条
+set guioptions-=r              " 去除右边的滚动条
+set guioptions-=R              " 去除右边的滚动条
+set guifont=Consolas:h14       " 设置字体
+```
 
 ## 2. 安装Vundle插件管理器
 

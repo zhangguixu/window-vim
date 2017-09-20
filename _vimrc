@@ -32,7 +32,6 @@ set completeopt=menuone,longest
 set relativenumber
 
 
-set guifont=Consolas:h14 " 设置字体
 set clipboard=unnamed "使用windows的剪切板
 colorscheme gruvbox
 
@@ -111,7 +110,7 @@ let g:used_javascript_libs = 'jquery,requirejs'
 " 快捷键f8 浏览当前打开的文件
 nnoremap <silent><F8> :BufExplorer<CR>
 
-" 自定义快捷键区
+"-------快捷键映射--------"
 
 " 切换窗口 在normal模式下，tab 键切换从左到右切换窗口
 nmap <tab> <c-w><c-w>
@@ -130,3 +129,20 @@ function BuildProject ()
     exe 'new | setlocal buftype=nofile bufhidden=hide | read !npm run develop '
 endfunction
 nmap <silent><F5> :call BuildProject()<CR>
+
+" <leader>h 去除搜索后的高亮
+nmap <leader>h :nohlsearch<CR>
+
+" 快速打开配置文件
+nmap <leader>ev :e $VIM/_vimrc<CR>
+
+"-------gvim 的界面设置--------"
+
+set guioptions-=T              " 去除工具栏
+set guioptions-=m              " 去除顶部的菜单栏
+set guioptions-=l              " 去除左边的滚动条
+set guioptions-=L              " 去除左边的滚动条
+set guioptions-=r              " 去除右边的滚动条
+set guioptions-=R              " 去除右边的滚动条
+set guifont=Consolas:h14       " 设置字体
+
